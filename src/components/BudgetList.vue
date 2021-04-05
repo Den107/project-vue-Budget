@@ -7,7 +7,10 @@
           <span v-else-if="item.value == 0"></span>
           <span v-else><i class="el-icon-bottom"></i></span>
           <span class="budget-comment">{{ item.comment }}</span>
-          <span class="budget-value">{{ item.value }}</span>
+          <span v-if="item.value > 0" class="budget-value positive">{{
+            item.value
+          }}</span>
+          <span v-else class="budget-value negative">{{ item.value }}</span>
           <ElButton
             type="danger"
             size="mini"
@@ -67,5 +70,11 @@ export default {
   font-weight: bold;
   margin-left: auto;
   margin-right: 20px;
+}
+.positive {
+  color: green;
+}
+.negative {
+  color: red;
 }
 </style>
